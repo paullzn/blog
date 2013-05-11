@@ -1,7 +1,11 @@
 *.py[cod]
+*.wsgic
 
 # C extensions
 *.so
+
+# Vim backup files
+*~
 
 # Packages
 *.egg
@@ -33,3 +37,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Svn
+.svn
