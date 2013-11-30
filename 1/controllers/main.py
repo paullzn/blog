@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import cherrypy
+import json
 
 class Site(object):
     """Root Controller"""
@@ -14,7 +15,12 @@ class Site(object):
 
     @cherrypy.expose
     def blog(self):
-        return "Blog Page."
+        cherrypy.response.headers['Content-Type'] = "application/json"
+        obj = {
+            'title': 'Blog Page',
+            'content': 'Blog Page is still working.'
+        }
+        return json.dumps(obj)
 
     @cherrypy.expose
     def photo(self):
@@ -23,6 +29,14 @@ class Site(object):
     @cherrypy.expose
     def about(self):
         return "About Myself.."
+
+    @cherrypy.expose
+    def admin(self):
+        return "Admin page should be here"
+
+    @cherrypy.expose
+    def api(self):
+        return ""
 
     @cherrypy.expose
     def default(self, *args, **kwargs):
