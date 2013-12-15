@@ -10,3 +10,7 @@ Run blog at local
 Deploy code to sina app engine
 -----
 * svn ci -m "commit message" 
+
+Import Database from .sql file into local MySQL
+-----
+* mysql -uroot -D app_paullzn < ~/Downloads/app_paullzn.sql
