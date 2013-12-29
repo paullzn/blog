@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="blogApp">
+  <head>
+    <script src="/static/lib/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+    <script src="/static/javascript/main.js" type="text/javascript"></script>
+  </head>
+  <body ng-controller="BlogListCtrl">
+    <div id="page">
+      <div id="header" class="section">
+        <div class="wrapper">
+          <strong id="blog-title"><a href="/">Paullzn Zone</a></strong>
+          <p id="blog-description">Zhaonan Li's homepage</p>
+        </div>
+      </div>
+      <div id="main" class="section">
+        <div class="wrapper">
+          <div id="content">
+            <strong><a href="/logout">Logout</a></strong>
+            <hr>
+            <br/>
+            <strong>New Post:</strong>
+            <form id="post_form" method="post" action="blog/new" width="100%"> 
+              Title: <input type="text" name="title"/>
+              <br/>
+              Content: <textarea form="post_form" name="content"></textarea>
+              <br/>
+              <input type="submit"/>
+            </form>
+            <br/>
+            <hr>
+            <br/>
+            <strong>Delete Post:</strong>
+            <form id="delete_form" method="post" action="blog/delete" width="100%">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
