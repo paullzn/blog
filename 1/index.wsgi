@@ -21,10 +21,6 @@ cherrypy.engine.subscribe('start_thread', connect)
 root = Site(os.path.dirname(os.path.abspath(__file__)))
 
 app_config = {
-    '/': {
-        'tools.sessions.on': True,
-        'tools.sessions.timeout': 60
-    }
 }
 
 app = cherrypy.Application(root, script_name=None, config=app_config)

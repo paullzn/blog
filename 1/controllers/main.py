@@ -41,22 +41,23 @@ class Site(object):
 
     @cherrypy.expose
     def admin(self):
-        if 'token' in cherrypy.session and cherrypy.session['token'] == 'user_token':
-            return cherrypy.lib.static.serve_file(join(self.root_dir, "public/html/admin.html"))
-        else:
-            return cherrypy.lib.static.serve_file(join(self.root_dir, "public/html/login.html"))
+        #if 'token' in cherrypy.session and cherrypy.session['token'] == 'user_token':
+        #    return cherrypy.lib.static.serve_file(join(self.root_dir, "public/html/admin.html"))
+        #else:
+        #    return cherrypy.lib.static.serve_file(join(self.root_dir, "public/html/login.html"))
+        return cherrypy.lib.static.serve_file(join(self.root_dir, "public/html/admin.html"))
 
     @cherrypy.expose
     def login(self, *args, **kwargs):
-        if 'username' in kwargs and 'password' in kwargs:
-            if kwargs['username'] == 'paullzn' and kwargs['password'] == 'woaiyubaobao':
-                cherrypy.session['token'] = 'user_token'
+        #if 'username' in kwargs and 'password' in kwargs:
+        #    if kwargs['username'] == 'paullzn' and kwargs['password'] == 'woaiyubaobao':
+        #        cherrypy.session['token'] = 'user_token'
         raise cherrypy.HTTPRedirect("/admin")
 
     @cherrypy.expose
     def logout(self):
-        if 'token' in cherrypy.session:
-            cherrypy.session['token'] = 'fake'
+        #if 'token' in cherrypy.session:
+        #    cherrypy.session['token'] = 'fake'
         raise cherrypy.HTTPRedirect("/admin")
 
     @cherrypy.expose
