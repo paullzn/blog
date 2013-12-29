@@ -14,7 +14,7 @@ from sae.const import (MYSQL_HOST, MYSQL_HOST_S,
 
 def connect(thread_index):
     #cherrypy.thread_data.db = MySQLdb.connect('localhost', 'root', '', 'app_paullzn')
-    cherrypy.thread_data.db = MySQLdb.connect(host=MYSQL_HOST, port=MYSQL_PORT, user=MYSQL_USER, passwd=MYSQL_PASS, db=MYSQL_DB)
+    cherrypy.thread_data.db = MySQLdb.connect(host=MYSQL_HOST, port=int(MYSQL_PORT), user=MYSQL_USER, passwd=MYSQL_PASS, db=MYSQL_DB)
 
 cherrypy.engine.subscribe('start_thread', connect)
 
@@ -23,8 +23,6 @@ root = Site(os.path.dirname(os.path.abspath(__file__)))
 app_config = {
     '/': {
         'tools.sessions.on': True,
-        'tools.sessions.storage_type': 'file',
-        'tools.sessions.storage_path': '/var/log/paullzn_app/',
         'tools.sessions.timeout': 60
     }
 }
